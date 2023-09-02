@@ -1,0 +1,632 @@
+fileFormatVersion: 2
+guid: 476c483cc6602944fb08a70ee57e3d11
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_0
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 1162
+        width: 98
+        height: 91
+      alignment: 9
+      pivot: {x: 0.8358726, y: 0.38373944}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56380351200bdd145b991e6af769d1d2
+      internalID: -224107339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_1
+      rect:
+        serializedVersion: 2
+        x: 269
+        y: 1162
+        width: 140
+        height: 81
+      alignment: 9
+      pivot: {x: 0.73511094, y: 0.4322736}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6799ac2923a21844bbb13e1d600728e4
+      internalID: 1753067581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_2
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 1162
+        width: 184
+        height: 50
+      alignment: 9
+      pivot: {x: 0.6575924, y: 0.69592774}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84fa635e46eae9d4bb668e139840ab3c
+      internalID: -344426318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_3
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 1036
+        width: 168
+        height: 66
+      alignment: 9
+      pivot: {x: 0.67130005, y: 0.75853384}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1609e09512e2052428aea2459d3ca5a5
+      internalID: 560520991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_4
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 1051
+        width: 184
+        height: 50
+      alignment: 9
+      pivot: {x: 0.66332495, y: 0.69355226}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e535335c17bfce04584a9419ae1ec856
+      internalID: 1127577372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_5
+      rect:
+        serializedVersion: 2
+        x: 489
+        y: 1051
+        width: 140
+        height: 80
+      alignment: 9
+      pivot: {x: 0.7401232, y: 0.4331482}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e7f0b999963dc444af6c1d774daf9bd
+      internalID: -837218588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_6
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 903
+        width: 100
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5fff40f7bf80794487f8b4bca8e721f
+      internalID: 314047923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_7
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 902
+        width: 84
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12703279305f0af41b7d812b5a2baa87
+      internalID: -515853922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_8
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 903
+        width: 47
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b035772add4e99d4bad119985dc9311a
+      internalID: 1325691224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_9
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 893
+        width: 100
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6cd871b65234e44d90e086927987183
+      internalID: 1485730190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_10
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 893
+        width: 100
+        height: 116
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6075da1fc88a854daffc70f9384b1d6
+      internalID: 1682511870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_11
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 759
+        width: 15
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ebe6e94ab7bd494e8bdb51b20b649b9
+      internalID: -476317021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_12
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 759
+        width: 46
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e063b7884e09eae4d9d7eeb19ff23796
+      internalID: -972040910
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_13
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 759
+        width: 86
+        height: 99
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bf875c312b14fd43ad41e7063adaf44
+      internalID: -997802554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_14
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 759
+        width: 100
+        height: 120
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52327fa94ea24a146ad4a093fa7fa45d
+      internalID: -1964242796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_15
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 759
+        width: 100
+        height: 123
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2a92a20fa4327849995f7440595c96d
+      internalID: 943966150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_16
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 625
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e862f5e993dd0442ada5d4b58bc4ca2
+      internalID: 2083150653
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_18
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 627
+        width: 127
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b1defd43d04739429d648d51a364784
+      internalID: 2076406787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_19
+      rect:
+        serializedVersion: 2
+        x: 441
+        y: 525
+        width: 200
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbe9874a9b230404ba63b3cf6c6fa525
+      internalID: 2075148052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_20
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 517
+        width: 300
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2458472497548a641a5b49dfebfbb4a1
+      internalID: 1771477520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_21
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 27
+        width: 450
+        height: 450
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 96975c47b66fdb84aa10cb3200789667
+      internalID: 1773652892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_22
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 377
+        width: 100
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e46daa21c402a840aa9e00025ecf1a1
+      internalID: 266403730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      spritesheet-of-game-magichat_14: -1964242796
+      spritesheet-of-game-magichat_12: -972040910
+      spritesheet-of-game-magichat_6: 314047923
+      spritesheet-of-game-magichat_5: -837218588
+      spritesheet-of-game-magichat_21: 1773652892
+      spritesheet-of-game-magichat_13: -997802554
+      spritesheet-of-game-magichat_7: -515853922
+      spritesheet-of-game-magichat_8: 1325691224
+      spritesheet-of-game-magichat_11: -476317021
+      spritesheet-of-game-magichat_9: 1485730190
+      spritesheet-of-game-magichat_15: 943966150
+      spritesheet-of-game-magichat_18: 2076406787
+      spritesheet-of-game-magichat_20: 1771477520
+      spritesheet-of-game-magichat_4: 1127577372
+      spritesheet-of-game-magichat_16: 2083150653
+      spritesheet-of-game-magichat_10: 1682511870
+      spritesheet-of-game-magichat_19: 2075148052
+      spritesheet-of-game-magichat_0: -224107339
+      spritesheet-of-game-magichat_17: -947592372
+      spritesheet-of-game-magichat_1: 1753067581
+      spritesheet-of-game-magichat_22: 266403730
+      spritesheet-of-game-magichat_2: -344426318
+      spritesheet-of-game-magichat_3: 560520991
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

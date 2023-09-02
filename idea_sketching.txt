@@ -1,0 +1,7 @@
+- Game scenes:
+	+ Splash scene:Hiển thị logo game "Magic Hat" + button "Play".
+	+ Guide scene: Nội dung hướng dẫn game + button "Ready??".
+	+ GamePlay scene: Logic game.
+	+ GameOver scene: Title "GameOver" + "Highest Score: 100" + "Your Score: 30" + "Replay??" -> GamePlay scene.
+- Nhân vật là chiếc mũ ma thuật sẽ tạo ngẫu nhiên đồng xu, con cú, hoặc quả bom trong khoảng thời gian 2 đến 4 giây.
+- Các cảnh vật nền dùng trang trí cho game.
