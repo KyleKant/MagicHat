@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,21 +11,21 @@ public class MagicHatController : MonoBehaviour
 
     private void Start()
     {
-        for(int index = 0; index < gameObjects.Count; index++)
+        for (int index = 0; index < gameObjects.Count; index++)
         {
             keyValuePairs.Add(index, gameObjects[index]);
         }
     }
     private void Update()
-    {;
-        
-        if(Time.time > increaseTime)
+    {
+        ;
+
+        if (Time.time > increaseTime)
         {
             Vector3 position = respawnPoint.transform.position;
             Quaternion rotation = respawnPoint.transform.rotation;
             int randomKey = GetRandomNum(0, gameObjects.Count);
             GameObject respawnObject = GetRandomRespawnObject(keyValuePairs, randomKey);
-            Debug.Log(respawnObject);
             Respawn(respawnObject, respawnPoint);
             increaseTime = Time.time + respawnTime;
         }
