@@ -6,9 +6,23 @@ public class CoinController : MonoBehaviour
     [SerializeField] private GameObject textObject;
     private ChangeScoreController changeScoreController;
     private GameObject textObj;
+    private TopPointController topPoint;
+    private GameManager gameManager;
     private void Start()
     {
         changeScoreController = FindObjectsOfType<ChangeScoreController>()[0];
+        topPoint = FindObjectOfType<TopPointController>();
+        gameManager = FindObjectOfType<GameManager>();
+    }
+    private void Update()
+    {
+        if (this.gameObject != null)
+        {
+            if (this.transform.position.y > topPoint.transform.position.y)
+            {
+                gameManager.isGameOver = true;
+            }
+        }
     }
     private void OnMouseDown()
     {
