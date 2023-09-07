@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class BombController : MonoBehaviour
 {
+    [SerializeField] private GameObject explosion;
     private GameManager gameManager;
     private TopPointController topPoint;
     private void Start()
@@ -21,6 +22,10 @@ public class BombController : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        gameManager.isGameOver = true;
+        GameObject explosionObj = Instantiate(explosion);
+        explosionObj.transform.position = this.transform.position;
+        gameManager.isGamePlaying = false;
+        this.gameObject.SetActive(false);
+        //gameManager.isGameOver = true;
     }
 }

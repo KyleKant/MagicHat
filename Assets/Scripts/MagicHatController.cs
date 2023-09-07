@@ -8,9 +8,11 @@ public class MagicHatController : MonoBehaviour
     [SerializeField] private GameObject respawnPoint;
     private float increaseTime = 0f;
     private Dictionary<int, GameObject> keyValuePairs = new Dictionary<int, GameObject>();
+    private GameManager gameManager;
 
     private void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         for (int index = 0; index < gameObjects.Count; index++)
         {
             keyValuePairs.Add(index, gameObjects[index]);
@@ -18,18 +20,16 @@ public class MagicHatController : MonoBehaviour
     }
     private void Update()
     {
-        ;
-
-        if (Time.time > increaseTime)
+        if (gameManager.isGamePlaying)
         {
-            Vector3 position = respawnPoint.transform.position;
-            Quaternion rotation = respawnPoint.transform.rotation;
-            int randomKey = GetRandomNum(0, gameObjects.Count);
-            GameObject respawnObject = GetRandomRespawnObject(keyValuePairs, randomKey);
-            Respawn(respawnObject, respawnPoint);
-            increaseTime = Time.time + respawnTime;
+            if (Time.time > increaseTime)
+            {
+                int randomKey = GetRandomNum(0, gameObjects.Count);
+                GameObject respawnObject = GetRandomRespawnObject(keyValuePairs, randomKey);
+                Respawn(respawnObject, respawnPoint);
+                increaseTime = Time.time + respawnTime;
+            }
         }
-
     }
     private int GetRandomNum(int minNum, int maxNum)
     {
