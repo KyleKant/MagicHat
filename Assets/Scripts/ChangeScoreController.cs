@@ -3,9 +3,13 @@ using UnityEngine;
 
 public class ChangeScoreController : MonoBehaviour
 {
-    public int scoreOfPlayer;
+    private PlayerManager playerManager;
+    private void Start()
+    {
+        playerManager = FindObjectOfType<PlayerManager>();
+    }
     private void Update()
     {
-        this.GetComponent<TextMeshProUGUI>().text = $"Score: {scoreOfPlayer}";
+        this.GetComponent<TextMeshProUGUI>().text = $"Score: {playerManager.scoreOfPlayer}";
     }
 }
