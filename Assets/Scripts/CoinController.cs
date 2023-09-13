@@ -8,13 +8,11 @@ public class CoinController : MonoBehaviour
     private GameObject textObj;
     private TopPointController topPoint;
     private GameManager gameManager;
-    private DataStorageController dataStorageController;
     private void Start()
     {
         playerManager = FindObjectOfType<PlayerManager>();
         topPoint = FindObjectOfType<TopPointController>();
         gameManager = FindObjectOfType<GameManager>();
-        dataStorageController = FindObjectOfType<DataStorageController>();
     }
     private void Update()
     {
@@ -31,12 +29,12 @@ public class CoinController : MonoBehaviour
     {
         textObj = Instantiate(textObject);
         textObj.transform.GetChild(textObj.transform.childCount - 1).GetComponent<RectTransform>().localPosition = this.transform.position * MULTIPLES;
-        playerManager.scoreOfPlayer += 1;
-        if (playerManager.scoreOfPlayer > playerManager.highScoreOfPlayer)
+        playerManager.playerData.playerScore += 1;
+        if (playerManager.playerData.playerScore > playerManager.playerData.highScore)
         {
-            playerManager.highScoreOfPlayer = playerManager.scoreOfPlayer;
+            playerManager.playerData.highScore = playerManager.playerData.playerScore;
         }
-        Debug.Log($"playerManager.scoreOfPlayer: {playerManager.scoreOfPlayer}, playerManager.HighScoreOfPlayer: {playerManager.highScoreOfPlayer}");
+        Debug.Log($"playerManager.scoreOfPlayer: {playerManager.playerData.playerScore}, playerManager.HighScoreOfPlayer: {playerManager.playerData.highScore}");
         Destroy(this.gameObject);
 
     }

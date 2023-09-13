@@ -7,12 +7,12 @@ public class GameManager : MonoBehaviour
     public bool isGamePlaying = true;
     private const int GAMEOVER_SCENE = 3;
     private SceneLoaderManager sceneLoader;
-    private DataStorageController dataStorageController;
+    private PlayerDataManager playerDataManager;
     private PlayerManager playerManager;
     private void Start()
     {
         sceneLoader = FindObjectOfType<SceneLoaderManager>();
-        dataStorageController = FindObjectOfType<DataStorageController>();
+        playerDataManager = FindObjectOfType<PlayerDataManager>();
         playerManager = FindObjectOfType<PlayerManager>();
     }
     private void Update()
@@ -20,7 +20,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(isGameOver);
         if (isGameOver)
         {
-            dataStorageController.WriteObject("Player Score.dat", playerManager.scoreOfPlayer, playerManager.highScoreOfPlayer);
+            playerDataManager.WriteFile("Player Score.json", playerManager.playerData);
             sceneLoader.ChangeScene(GAMEOVER_SCENE);
             //Destroy(this.gameObject);
         }

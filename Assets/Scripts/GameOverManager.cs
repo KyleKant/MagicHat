@@ -5,13 +5,13 @@ public class GameOverManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI playerScore;
     [SerializeField] private TextMeshProUGUI highScore;
-    private DataStorageController dataStorageController;
-    private Player player;
+    private PlayerDataManager playerDataManager;
+    private PlayerData playerData;
     private void Start()
     {
-        dataStorageController = FindObjectOfType<DataStorageController>();
-        player = dataStorageController.ReadObject("Player Score.dat");
-        playerScore.text = $"Your Score: {player.playerScore}";
-        highScore.text = $"High Score: {player.highScore}";
+        playerDataManager = FindObjectOfType<PlayerDataManager>();
+        playerData = playerDataManager.ReadFile("Player Score.json");
+        playerScore.text = $"Your Score: {playerData.playerScore}";
+        highScore.text = $"High Score: {playerData.highScore}";
     }
 }

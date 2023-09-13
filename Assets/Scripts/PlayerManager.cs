@@ -2,15 +2,15 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public PlayerData playerData;
     public int scoreOfPlayer;
-    public int highScoreOfPlayer;
-    private DataStorageController storageController;
-    private Player player;
+    public int highsScoreOfPlayer;
+    private PlayerDataManager playerDataManager;
     private void Start()
     {
-        storageController = FindObjectOfType<DataStorageController>();
-        player = storageController.ReadObject("Player Score.dat");
-        highScoreOfPlayer = player.highScore;
-        Debug.Log($"scoreOfPlayer: {scoreOfPlayer}, highScoreOfPlayer: {highScoreOfPlayer}");
+        playerDataManager = FindObjectOfType<PlayerDataManager>();
+        playerData = playerDataManager.ReadFile("Player Score.json");
+        playerData.playerScore = 0;
+        highsScoreOfPlayer = playerData.highScore;
     }
 }

@@ -10,6 +10,6 @@ public class ChangeScoreController : MonoBehaviour
     }
     private void Update()
     {
-        this.GetComponent<TextMeshProUGUI>().text = $"Score: {playerManager.scoreOfPlayer}";
+        this.GetComponent<TextMeshProUGUI>().text = $"Score: {playerManager.playerData.playerScore}";
     }
 }

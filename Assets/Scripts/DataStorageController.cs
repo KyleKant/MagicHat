@@ -35,6 +35,8 @@ public class DataStorageController : MonoBehaviour
         FileStream writer = new(Application.persistentDataPath + "/" + fileName, FileMode.Create);
         DataContractSerializer dataContractSerializer = new(typeof(Player));
         dataContractSerializer.WriteObject(writer, player);
+        writer.Seek(0, SeekOrigin.Begin);
+
         writer.Close();
     }
     public Player ReadObject(string fileName)
