@@ -1,10 +1,15 @@
-using System.Runtime.Serialization;
+using System;
+using System.Collections.Generic;
 
-[DataContract(Name = "Player Data", Namespace = "Player Score Data")]
+[Serializable]
 public class PlayerData
 {
-    [DataMember]
     public int playerScore;
-    [DataMember]
     public int highScore;
+    public string dateTime;
+}
+[Serializable]
+public class PlayerDataList
+{
+    public List<PlayerData> PlayerDatas = new();
 }

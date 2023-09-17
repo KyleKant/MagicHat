@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TextController : MonoBehaviour
 {
-    [SerializeField] private float speed = 0.02f;
+    [SerializeField] private float speed = 0.8f;
     private Transform text;
     private void Start()
     {
@@ -22,6 +22,6 @@ public class TextController : MonoBehaviour
     }
     private void Update()
     {
-        text.GetComponent<RectTransform>().Translate(new Vector3(0, speed, 0));
+        text.GetComponent<RectTransform>().Translate(new Vector3(0, speed * Time.deltaTime, 0));
     }
 }

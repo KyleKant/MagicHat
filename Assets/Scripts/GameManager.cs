@@ -17,12 +17,29 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log(isGameOver);
         if (isGameOver)
         {
-            playerDataManager.WriteFile("Player Score.json", playerManager.playerData);
+            playerManager.playerDataList.PlayerDatas.Add(playerManager.playerData);
+            playerDataManager.WriteFile("Player Score.json", playerManager.playerDataList);
             sceneLoader.ChangeScene(GAMEOVER_SCENE);
-            //Destroy(this.gameObject);
         }
+    }
+    public void PauseGame()
+    {
+        Time.timeScale = 0f;
+        isGamePaused = true;
+    }
+    public void ResumeGame()
+    {
+        Time.timeScale = 1f;
+        isGamePaused = false;
+    }
+    public void SetGamePause()
+    {
+        isGamePaused = true;
+    }
+    public void ResetGamePause()
+    {
+        isGamePaused = false;
     }
 }

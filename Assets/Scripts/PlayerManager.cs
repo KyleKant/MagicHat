@@ -1,16 +1,57 @@
+using System;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    public PlayerDataList playerDataList;
     public PlayerData playerData;
-    public int scoreOfPlayer;
-    public int highsScoreOfPlayer;
     private PlayerDataManager playerDataManager;
+
     private void Start()
     {
         playerDataManager = FindObjectOfType<PlayerDataManager>();
-        playerData = playerDataManager.ReadFile("Player Score.json");
-        playerData.playerScore = 0;
-        highsScoreOfPlayer = playerData.highScore;
+        playerDataList = playerDataManager.ReadFile("Player Score.json");
+        if (playerDataList.PlayerDatas.Count == 0)
+        {
+            playerData.playerScore = 0;
+            playerData.highScore = 0;
+            playerData.dateTime = "0";
+            playerDataList.PlayerDatas.Add(playerData);
+            playerDataManager.WriteFile("Player Score.json", playerDataList);
+        }
+    }
+    private void Update()
+    {
+        playerDataList = playerDataManager.ReadFile("Player Score.json");
+        //if (playerDataList.PlayerDatas.Count > 0)
+        //{
+
+        //    int highestScore = playerDataList.PlayerDatas.Max(playerData => playerData.highScore);
+        //    //if (playerData.playerScore > highestScore)
+        //    //{
+        //    playerData.highScore = playerData.playerScore;
+        //    playerData.dateTime = DateTime.Now.ToString("dd/MM/yyyy hh:mm tt");
+        //    //playerDataList.PlayerDatas.Add(playerData);
+        //    //}
+        //}
+    }
+    public void AddPlayerDataToPlayerDataList(int score)
+    {
+        playerDataList = playerDataManager.ReadFile("Player Score.json");
+        if (playerDataList.PlayerDatas.Count > 0)
+        {
+            int highestScore = playerDataList.PlayerDatas.Max(playerData => playerData.highScore);
+            playerData.playerScore += score;
+            if (playerData.playerScore > highestScore)
+            {
+                playerData.highScore = playerData.playerScore;
+                playerData.dateTime = DateTime.Now.ToString("dd/MM/yyyy hh:mm tt");
+            }
+        }
+    }
+    public void OnEnable()
+    {
+        CoinController.OnIncreaseScore += AddPlayerDataToPlayerDataList;
     }
 }
