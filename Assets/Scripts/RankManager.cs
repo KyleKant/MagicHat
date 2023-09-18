@@ -4,34 +4,38 @@ using UnityEngine;
 public class RankManager : MonoBehaviour
 {
     private PlayerManager playerManager;
-    private TextMeshProUGUI timeText;
-    private TextMeshProUGUI scoreText;
-    private PlayerDataList playerDataList;
-    private PlayerDataManager playerDataManager;
+    private PlayerDataList playerDataList = new();
     private void Start()
     {
         playerManager = FindObjectOfType<PlayerManager>();
-        playerDataManager = FindObjectOfType<PlayerDataManager>();
+        foreach (PlayerData playerData in playerManager.playerDataList.PlayerDatas)
+        {
+            if (playerData.highScore != 0)
+            {
+                playerDataList.PlayerDatas.Add(playerData);
+            }
+        }
     }
     private void Update()
     {
-        playerDataList = playerDataManager.ReadFile("Player Score.json");
-        if (playerDataList.PlayerDatas == null)
+        if (playerManager != null)
         {
-            playerDataList.PlayerDatas = new();
+            if ((this.gameObject.GetComponentsInChildren<TextMeshProUGUI>().Length / 2) < playerDataList.PlayerDatas.Count)
+            {
+                for (int i = playerDataList.PlayerDatas.Count - 1; i >= 0; i--)
+                {
+                    if (playerDataList.PlayerDatas[i].highScore != 0)
+                    {
+                        CreateText($"Score Text {i}", playerDataList.PlayerDatas[i].highScore.ToString());
+                        CreateText($"Time Text {i}", playerDataList.PlayerDatas[i].dateTime);
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+            }
         }
-        Debug.Log(playerDataList.PlayerDatas.Count);
-        //if (playerManager != null)
-        //{
-        //    if (this.gameObject.GetComponentsInChildren<TextMeshProUGUI>().Length < playerManager.playerData.playerDataDict.Count)
-        //    {
-        //        for (int i = this.gameObject.GetComponentsInChildren<TextMeshProUGUI>().Length; i < playerManager.playerData.playerDataDict.Count; i++)
-        //        {
-        //            Debug.Log(playerManager.playerData.playerDataDict.Count);
-        //            CreateText($"Score Text {i}", playerManager.playerData.playerDataDict[i].dateTime);
-        //        }
-        //    }
-        //}
     }
     private void CreateText(string text, string content)
     {

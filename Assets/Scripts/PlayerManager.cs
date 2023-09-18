@@ -24,17 +24,6 @@ public class PlayerManager : MonoBehaviour
     private void Update()
     {
         playerDataList = playerDataManager.ReadFile("Player Score.json");
-        //if (playerDataList.PlayerDatas.Count > 0)
-        //{
-
-        //    int highestScore = playerDataList.PlayerDatas.Max(playerData => playerData.highScore);
-        //    //if (playerData.playerScore > highestScore)
-        //    //{
-        //    playerData.highScore = playerData.playerScore;
-        //    playerData.dateTime = DateTime.Now.ToString("dd/MM/yyyy hh:mm tt");
-        //    //playerDataList.PlayerDatas.Add(playerData);
-        //    //}
-        //}
     }
     public void AddPlayerDataToPlayerDataList(int score)
     {
@@ -46,7 +35,7 @@ public class PlayerManager : MonoBehaviour
             if (playerData.playerScore > highestScore)
             {
                 playerData.highScore = playerData.playerScore;
-                playerData.dateTime = DateTime.Now.ToString("dd/MM/yyyy hh:mm tt");
+                playerData.dateTime = DateTime.Now.ToString("dd/MM/yy hh:mm tt");
             }
         }
     }

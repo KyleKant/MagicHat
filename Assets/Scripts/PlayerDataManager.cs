@@ -20,8 +20,8 @@ public class PlayerDataManager : MonoBehaviour
             Aes oAes = Aes.Create();
             byte[] outputIV = new byte[oAes.IV.Length];
             fileStream.Read(outputIV, 0, outputIV.Length);
-            //CryptoStream oCryptoStream = new CryptoStream(fileStream, oAes.CreateDecryptor(savedKey, outputIV), CryptoStreamMode.Read);
-            StreamReader reader = new StreamReader(fileStream);
+            CryptoStream oCryptoStream = new CryptoStream(fileStream, oAes.CreateDecryptor(savedKey, outputIV), CryptoStreamMode.Read);
+            StreamReader reader = new StreamReader(oCryptoStream);
             string readText = reader.ReadToEnd();
             reader.Close();
             playerDataList = JsonUtility.FromJson<PlayerDataList>(readText);
@@ -46,12 +46,12 @@ public class PlayerDataManager : MonoBehaviour
         fileStream = new FileStream(saveFile, FileMode.Create);
         byte[] inputIV = iAes.IV;
         fileStream.Write(inputIV, 0, inputIV.Length);
-        //CryptoStream iCryptoStream = new CryptoStream(fileStream, iAes.CreateEncryptor(iAes.Key, iAes.IV), CryptoStreamMode.Write);
-        StreamWriter writer = new StreamWriter(fileStream);
+        CryptoStream iCryptoStream = new CryptoStream(fileStream, iAes.CreateEncryptor(iAes.Key, iAes.IV), CryptoStreamMode.Write);
+        StreamWriter writer = new StreamWriter(iCryptoStream);
         string writtenText = JsonUtility.ToJson(playerDataList);
         writer.Write(writtenText);
         writer.Close();
-        //iCryptoStream.Close();
+        iCryptoStream.Close();
         fileStream.Close();
     }
 }

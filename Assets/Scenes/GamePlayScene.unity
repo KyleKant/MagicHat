@@ -584,9 +584,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b7c9eb01f991b4a9dd20b3a506759a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreOfPlayer: 0
-  highsScoreOfPlayer: 0
-  highScoreDateTime: 
+  playerDataList:
+    PlayerDatas: []
+  playerData:
+    playerScore: 0
+    highScore: 0
+    dateTime: 
 --- !u!114 &318228206
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1753,7 +1756,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 200, y: 55}
+  m_CellSize: {x: 200, y: 90}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 1
   m_ConstraintCount: 2
