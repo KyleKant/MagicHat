@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public GameState gameState;
+    public GameState currentGameState;
     public bool isGameOver = false;
     public bool isGamePaused = false;
     public bool isGamePlaying = true;
@@ -17,29 +19,38 @@ public class GameManager : MonoBehaviour
     }
     private void Update()
     {
-        if (isGameOver)
+        switch (currentGameState)
         {
-            playerManager.playerDataList.PlayerDatas.Add(playerManager.playerData);
-            playerDataManager.WriteFile("Player Score.json", playerManager.playerDataList);
-            sceneLoader.ChangeScene(GAMEOVER_SCENE);
+            case GameState.Play:
+                Debug.Log("Game is Playing");
+                break;
+            case GameState.Pause:
+                Debug.Log("Game is Pausing");
+                break;
+            case GameState.GameOver:
+                ChangeSceneToGameOverScene();
+                break;
         }
+    }
+    private void ChangeSceneToGameOverScene()
+    {
+        playerManager.playerDataList.PlayerDatas.Add(playerManager.playerData);
+        playerDataManager.WriteFile("Player Score.json", playerManager.playerDataList);
+        sceneLoader.ChangeScene(GAMEOVER_SCENE);
     }
     public void PauseGame()
     {
         Time.timeScale = 0f;
-        isGamePaused = true;
     }
     public void ResumeGame()
     {
         Time.timeScale = 1f;
-        isGamePaused = false;
     }
-    public void SetGamePause()
-    {
-        isGamePaused = true;
-    }
-    public void ResetGamePause()
-    {
-        isGamePaused = false;
-    }
+
+}
+public enum GameState
+{
+    Play,
+    Pause,
+    GameOver
 }

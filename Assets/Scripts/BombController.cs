@@ -26,6 +26,5 @@ public class BombController : MonoBehaviour
         explosionObj.transform.position = this.transform.position;
         gameManager.isGamePlaying = false;
         this.gameObject.SetActive(false);
-        //gameManager.isGameOver = true;
     }
 }

@@ -13,7 +13,7 @@ public class ExplosionController : MonoBehaviour
     private IEnumerator IEDestroy(float delay)
     {
         yield return new WaitForSeconds(delay);
-        gameManager.isGameOver = true;
+        gameManager.currentGameState = GameState.GameOver;
         Destroy(this.gameObject);
 
     }

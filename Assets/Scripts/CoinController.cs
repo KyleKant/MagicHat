@@ -22,8 +22,7 @@ public class CoinController : MonoBehaviour
         {
             if (this.transform.position.y > topPoint.transform.position.y)
             {
-                gameManager.isGameOver = true;
-                gameManager.isGamePlaying = false;
+                gameManager.currentGameState = GameState.GameOver;
             }
         }
     }
