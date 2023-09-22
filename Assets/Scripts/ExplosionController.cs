@@ -3,17 +3,16 @@ using UnityEngine;
 
 public class ExplosionController : MonoBehaviour
 {
-    private GameManager gameManager;
+    public delegate void LifeLostDueExplosionBomb(int lifeLost);
+    public static LifeLostDueExplosionBomb OnLifeLostDueExplosionBomb;
     private void Start()
     {
-        gameManager = FindObjectOfType<GameManager>();
-        //gameManager.isGamePlaying = false;
         StartCoroutine(IEDestroy(1.333f));
     }
     private IEnumerator IEDestroy(float delay)
     {
         yield return new WaitForSeconds(delay);
-        gameManager.currentGameState = GameState.GameOver;
+        OnLifeLostDueExplosionBomb?.Invoke(1);
         Destroy(this.gameObject);
 
     }

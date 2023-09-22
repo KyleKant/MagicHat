@@ -4,17 +4,15 @@ public class CoinController : MonoBehaviour
 {
     public delegate void IncreaseScore(int score);
     public static event IncreaseScore OnIncreaseScore;
+    public delegate void LifeLost(int lifeLost);
+    public static event LifeLost OnLifeLost;
     private const int MULTIPLES = 100;
     [SerializeField] private GameObject textObject;
-    PlayerManager playerManager;
     private GameObject textObj;
     private TopPointController topPoint;
-    private GameManager gameManager;
     private void Start()
     {
-        playerManager = FindObjectOfType<PlayerManager>();
         topPoint = FindObjectOfType<TopPointController>();
-        gameManager = FindObjectOfType<GameManager>();
     }
     private void Update()
     {
@@ -22,7 +20,8 @@ public class CoinController : MonoBehaviour
         {
             if (this.transform.position.y > topPoint.transform.position.y)
             {
-                gameManager.currentGameState = GameState.GameOver;
+                OnLifeLost?.Invoke(1);
+                Destroy(gameObject);
             }
         }
     }
@@ -31,7 +30,6 @@ public class CoinController : MonoBehaviour
         textObj = Instantiate(textObject);
         textObj.transform.GetChild(textObj.transform.childCount - 1).GetComponent<RectTransform>().localPosition = this.transform.position * MULTIPLES;
         OnIncreaseScore?.Invoke(1);
-        //playerManager.playerData.playerScore += 1;
         Destroy(this.gameObject);
 
     }

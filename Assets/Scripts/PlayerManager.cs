@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class PlayerManager : MonoBehaviour
 {
+    private int lifeNumber = 3;
+    public int Life = 3;
+    public delegate void ChangeLifeNumberVariable(int newLifeNumber);
+    public static event ChangeLifeNumberVariable OnChangeLifeNumberVariable;
     public PlayerDataList playerDataList;
     public PlayerData playerData;
     private PlayerDataManager playerDataManager;
-
+    private GameManager gameManager;
     private void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         playerDataManager = FindObjectOfType<PlayerDataManager>();
         playerDataList = playerDataManager.ReadFile("Player Score.json");
         if (playerDataList.PlayerDatas.Count == 0)
@@ -24,8 +29,18 @@ public class PlayerManager : MonoBehaviour
     private void Update()
     {
         playerDataList = playerDataManager.ReadFile("Player Score.json");
+        if (!CheckPlayerIsLifing())
+        {
+            lifeNumber = 3;
+            gameManager.currentGameState = GameState.GameOver;
+        }
+        if (Life != lifeNumber && OnChangeLifeNumberVariable != null)
+        {
+            Life = lifeNumber;
+            OnChangeLifeNumberVariable(lifeNumber);
+        }
     }
-    public void AddPlayerDataToPlayerDataList(int score)
+    private void AddPlayerDataToPlayerDataList(int score)
     {
         playerDataList = playerDataManager.ReadFile("Player Score.json");
         if (playerDataList.PlayerDatas.Count > 0)
@@ -39,8 +54,31 @@ public class PlayerManager : MonoBehaviour
             }
         }
     }
+    private void PlayerLostOneLife(int lifeLost)
+    {
+        lifeNumber -= lifeLost;
+        Debug.Log($"Life Number of player: {lifeNumber}");
+        if (lifeNumber == 0)
+        {
+            Debug.Log("Player is die.");
+        }
+    }
     public void OnEnable()
     {
         CoinController.OnIncreaseScore += AddPlayerDataToPlayerDataList;
+        CoinController.OnLifeLost += PlayerLostOneLife;
+        ExplosionController.OnLifeLostDueExplosionBomb += PlayerLostOneLife;
+    }
+    public int GetLifeNumber()
+    {
+        return lifeNumber;
+    }
+    private bool CheckPlayerIsLifing()
+    {
+        if (lifeNumber > 0)
+        {
+            return true;
+        }
+        return false;
     }
 }

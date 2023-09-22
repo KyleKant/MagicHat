@@ -24,7 +24,6 @@ public class BombController : MonoBehaviour
     {
         GameObject explosionObj = Instantiate(explosion);
         explosionObj.transform.position = this.transform.position;
-        gameManager.isGamePlaying = false;
         this.gameObject.SetActive(false);
     }
 }

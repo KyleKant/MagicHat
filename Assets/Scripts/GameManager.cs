@@ -4,8 +4,6 @@ public class GameManager : MonoBehaviour
 {
     public GameState gameState;
     public GameState currentGameState;
-    public bool isGameOver = false;
-    public bool isGamePaused = false;
     public bool isGamePlaying = true;
     private const int GAMEOVER_SCENE = 3;
     private SceneLoaderManager sceneLoader;
