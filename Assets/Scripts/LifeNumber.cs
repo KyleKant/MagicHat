@@ -26,7 +26,17 @@ public class LifeNumber : MonoBehaviour
     }
     private void OnEnable()
     {
-        PlayerManager.OnChangeLifeNumberVariable += PlayerManager_OnChangeLifeNumberVariable;
+        PlayerManager.OnDecreaseLifeNumberVariable += PlayerManager_OnChangeLifeNumberVariable;
+        PlayerManager.OnIncreaseLifeNumberVariable += PlayerManager_OnIncreaseLifeNumberVariable;
+    }
+
+    private void PlayerManager_OnIncreaseLifeNumberVariable(int newLifeNumber)
+    {
+        if (this != null)
+        {
+            GameObject heartObject = Instantiate(heartObj);
+            heartObject.transform.SetParent(this.transform, false);
+        }
     }
 
     private void PlayerManager_OnChangeLifeNumberVariable(int newLifeNumber)
@@ -34,7 +44,6 @@ public class LifeNumber : MonoBehaviour
         if (this != null)
         {
             Destroy(this.transform.GetComponentsInChildren<Image>().Last().gameObject);
-            Debug.Log("Player did lost one life");
         }
     }
 }

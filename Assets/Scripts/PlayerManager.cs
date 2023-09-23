@@ -7,7 +7,8 @@ public class PlayerManager : MonoBehaviour
     private int lifeNumber = 3;
     public int Life = 3;
     public delegate void ChangeLifeNumberVariable(int newLifeNumber);
-    public static event ChangeLifeNumberVariable OnChangeLifeNumberVariable;
+    public static event ChangeLifeNumberVariable OnDecreaseLifeNumberVariable;
+    public static event ChangeLifeNumberVariable OnIncreaseLifeNumberVariable;
     public PlayerDataList playerDataList;
     public PlayerData playerData;
     private PlayerDataManager playerDataManager;
@@ -34,10 +35,21 @@ public class PlayerManager : MonoBehaviour
             lifeNumber = 3;
             gameManager.currentGameState = GameState.GameOver;
         }
-        if (Life != lifeNumber && OnChangeLifeNumberVariable != null)
+        if (Life > lifeNumber)
         {
-            Life = lifeNumber;
-            OnChangeLifeNumberVariable(lifeNumber);
+            if (OnDecreaseLifeNumberVariable != null)
+            {
+                Life = lifeNumber;
+                OnDecreaseLifeNumberVariable(lifeNumber);
+            }
+        }
+        else if (Life < lifeNumber)
+        {
+            if (OnIncreaseLifeNumberVariable != null)
+            {
+                Life = lifeNumber;
+                OnIncreaseLifeNumberVariable(lifeNumber);
+            }
         }
     }
     private void AddPlayerDataToPlayerDataList(int score)
@@ -57,10 +69,31 @@ public class PlayerManager : MonoBehaviour
     private void PlayerLostOneLife(int lifeLost)
     {
         lifeNumber -= lifeLost;
-        Debug.Log($"Life Number of player: {lifeNumber}");
         if (lifeNumber == 0)
         {
             Debug.Log("Player is die.");
+        }
+    }
+    private void PlayerGetOneLife(int lifeBonus)
+    {
+        lifeNumber += lifeBonus;
+    }
+    private void PlayerGetBuffDefuff(int buffOrDebuffIndex)
+    {
+        switch (buffOrDebuffIndex)
+        {
+            case 0:
+                PlayerGetOneLife(1);
+                break;
+            case 1:
+                AddPlayerDataToPlayerDataList(5);
+                break;
+            case 2:
+                PlayerLostOneLife(1);
+                break;
+            case 3:
+                PlayerLostOneLife(3);
+                break;
         }
     }
     public void OnEnable()
@@ -68,6 +101,7 @@ public class PlayerManager : MonoBehaviour
         CoinController.OnIncreaseScore += AddPlayerDataToPlayerDataList;
         CoinController.OnLifeLost += PlayerLostOneLife;
         ExplosionController.OnLifeLostDueExplosionBomb += PlayerLostOneLife;
+        OwlBlueController.OnPressedOwl += PlayerGetBuffDefuff;
     }
     public int GetLifeNumber()
     {

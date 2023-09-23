@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1547255165752950902}
   - component: {fileID: 5002728013740069825}
   m_Layer: 5
-  m_Name: ScorePlusCanvas
+  m_Name: ScorePlusBubbleCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.8
+  textBubble: {fileID: 11400000, guid: 8e90888669f4baf49ac9811536347b9b, type: 2}
 --- !u!1 &4271218753496959401
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,7 +128,7 @@ GameObject:
   - component: {fileID: 4789188908504521712}
   - component: {fileID: 5197743287088180538}
   m_Layer: 5
-  m_Name: ScorePlusText
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

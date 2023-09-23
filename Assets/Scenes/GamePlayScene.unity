@@ -584,6 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b7c9eb01f991b4a9dd20b3a506759a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Life: 3
   playerDataList:
     PlayerDatas: []
   playerData:
@@ -1634,8 +1635,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameState: 0
   currentGameState: 0
-  isGameOver: 0
-  isGamePaused: 0
   isGamePlaying: 1
 --- !u!4 &829830864
 Transform:
@@ -2241,8 +2240,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnTime: 2.5
   gameObjects:
-  - {fileID: 8862827523052204062, guid: 36abba719e314464fa9aa0a4f97adbb3, type: 3}
-  - {fileID: 9181413236880716033, guid: 231d49b00013bb549b74ca79576f5dae, type: 3}
   - {fileID: 3702507459082783413, guid: 69264ff2fef35a84bb86f6b8b759cc7c, type: 3}
-  - {fileID: 9181413236880716033, guid: 231d49b00013bb549b74ca79576f5dae, type: 3}
+  - {fileID: 8862827523052204062, guid: 36abba719e314464fa9aa0a4f97adbb3, type: 3}
   respawnPoint: {fileID: 1152037437}

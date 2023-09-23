@@ -159,3 +159,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89856121e4be7ff47a96ed2a16ecdf59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bufforDebuffs:
+  - {fileID: 925807218218033592, guid: 4d87e88489bf30c4fa97163eb7da9d3d, type: 3}
+  - {fileID: 1787227513748680451, guid: 6fd28d48b6370194d98286e74c2639a8, type: 3}
+  - {fileID: 3749898474075846093, guid: 592551f4058858d4eac22172b22b1e7a, type: 3}
+  - {fileID: 657874549192439637, guid: 90c8db6968e66bc4794228b415e45464, type: 3}

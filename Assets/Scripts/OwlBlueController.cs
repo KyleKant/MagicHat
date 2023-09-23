@@ -2,6 +2,10 @@ using UnityEngine;
 
 public class OwlBlueController : MonoBehaviour
 {
+    public delegate void PressedOwl(int buffOrDebufIndex);
+    public static PressedOwl OnPressedOwl;
+    [SerializeField] private GameObject[] bufforDebuffs;
+    private const int MULTIPLES = 100;
     private TopPointController topPoint;
     private void Start()
     {
@@ -17,4 +21,16 @@ public class OwlBlueController : MonoBehaviour
             }
         }
     }
+    private void OnMouseDown()
+    {
+        if (this.gameObject != null)
+        {
+            int indexRandom = Random.Range(0, bufforDebuffs.Length);
+            GameObject textBubleObj = Instantiate(bufforDebuffs[indexRandom]);
+            textBubleObj.transform.GetChild(textBubleObj.transform.childCount - 1).GetComponent<RectTransform>().localPosition = this.transform.position * MULTIPLES;
+            OnPressedOwl?.Invoke(indexRandom);
+            Destroy(this.gameObject);
+        }
+    }
+
 }
