@@ -10,9 +10,11 @@ public class CoinController : MonoBehaviour
     [SerializeField] private GameObject textObject;
     private GameObject textObj;
     private TopPointController topPoint;
+    private bool isClickedCoin;
     private void Start()
     {
         topPoint = FindObjectOfType<TopPointController>();
+        isClickedCoin = false;
     }
     private void Update()
     {
@@ -27,11 +29,14 @@ public class CoinController : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        textObj = Instantiate(textObject);
-        textObj.transform.GetChild(textObj.transform.childCount - 1).GetComponent<RectTransform>().localPosition = this.transform.position * MULTIPLES;
-        OnIncreaseScore?.Invoke(1);
-        Destroy(this.gameObject);
-
+        if (isClickedCoin == false)
+        {
+            textObj = Instantiate(textObject);
+            textObj.transform.GetChild(textObj.transform.childCount - 1).GetComponent<RectTransform>().localPosition = this.transform.position * MULTIPLES;
+            OnIncreaseScore?.Invoke(1);
+            isClickedCoin = true;
+            //Destroy(this.gameObject);
+        }
     }
 
 }

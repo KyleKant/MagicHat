@@ -7,9 +7,11 @@ public class OwlBlueController : MonoBehaviour
     [SerializeField] private GameObject[] bufforDebuffs;
     private const int MULTIPLES = 100;
     private TopPointController topPoint;
+    private bool isClickedOwl;
     private void Start()
     {
         topPoint = FindObjectOfType<TopPointController>();
+        isClickedOwl = false;
     }
     private void Update()
     {
@@ -25,11 +27,15 @@ public class OwlBlueController : MonoBehaviour
     {
         if (this.gameObject != null)
         {
-            int indexRandom = Random.Range(0, bufforDebuffs.Length);
-            GameObject textBubleObj = Instantiate(bufforDebuffs[indexRandom]);
-            textBubleObj.transform.GetChild(textBubleObj.transform.childCount - 1).GetComponent<RectTransform>().localPosition = this.transform.position * MULTIPLES;
-            OnPressedOwl?.Invoke(indexRandom);
-            Destroy(this.gameObject);
+            if (!isClickedOwl)
+            {
+                int indexRandom = Random.Range(0, bufforDebuffs.Length);
+                GameObject textBubleObj = Instantiate(bufforDebuffs[indexRandom]);
+                textBubleObj.transform.GetChild(textBubleObj.transform.childCount - 1).GetComponent<RectTransform>().localPosition = this.transform.position * MULTIPLES;
+                OnPressedOwl?.Invoke(indexRandom);
+                isClickedOwl = true;
+            }
+
         }
     }
 
