@@ -11,9 +11,9 @@ public class GameDataManager : MonoBehaviour
     {
         GameData gameData = new GameData();
         savedFile = Application.persistentDataPath + "/" + fileName;
-        if (File.Exists(savedFile) && PlayerPrefs.HasKey("key"))
+        if (File.Exists(savedFile) && PlayerPrefs.HasKey("gameDataKey"))
         {
-            byte[] savedKey = System.Convert.FromBase64String(PlayerPrefs.GetString("key"));
+            byte[] savedKey = System.Convert.FromBase64String(PlayerPrefs.GetString("gameDataKey"));
             fileStream = new FileStream(savedFile, FileMode.Open, FileAccess.Read);
             Aes oAes = Aes.Create();
             byte[] outputIV = new byte[oAes.IV.Length];
@@ -36,8 +36,8 @@ public class GameDataManager : MonoBehaviour
         savedFile = Application.persistentDataPath + "/" + fileName;
         Aes iAes = Aes.Create();
         byte[] savedKey = iAes.Key;
-        string key = System.Convert.ToBase64String(savedKey);
-        PlayerPrefs.SetString("key", key);
+        string gameDataKey = System.Convert.ToBase64String(savedKey);
+        PlayerPrefs.SetString("gameDataKey", gameDataKey);
         fileStream = new FileStream(savedFile, FileMode.Create);
         byte[] inputIV = iAes.IV;
         fileStream.Write(inputIV, 0, inputIV.Length);
