@@ -1,3 +1,6 @@
+using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using System.Runtime.Serialization;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -9,11 +12,13 @@ public class GameManager : MonoBehaviour
     private SceneLoaderManager sceneLoader;
     private PlayerDataManager playerDataManager;
     private PlayerManager playerManager;
+    private GameDataManager gameDataManager;
     private void Start()
     {
         sceneLoader = FindObjectOfType<SceneLoaderManager>();
         playerDataManager = FindObjectOfType<PlayerDataManager>();
         playerManager = FindObjectOfType<PlayerManager>();
+        gameDataManager = GetComponent<GameDataManager>();
     }
     private void Update()
     {
@@ -46,11 +51,29 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         currentGameState = GameState.Play;
     }
-
+    public void ReadGameData()
+    {
+        GameData gameData = gameDataManager.ReadFile("GameData.json");
+        Debug.Log(gameData.Level + "//" + gameData.State);
+    }
 }
+[JsonConverter(typeof(StringEnumConverter))]
 public enum GameState
 {
+    [EnumMember(Value = "Play")]
     Play,
+    [EnumMember(Value = "Pause")]
     Pause,
-    GameOver
+    [EnumMember(Value = "GameOver")]
+    GameOver,
+}
+[JsonConverter(typeof(StringEnumConverter))]
+public enum GameLevel
+{
+    [EnumMember(Value = "Easy")]
+    Easy,
+    [EnumMember(Value = "Normal")]
+    Normal,
+    [EnumMember(Value = "Hard")]
+    Hard,
 }
