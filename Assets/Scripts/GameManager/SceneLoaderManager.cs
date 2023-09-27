@@ -14,9 +14,11 @@ public class SceneLoaderManager : MonoBehaviour
 
     public void ChangeScene(int sceneBuildIndex)
     {
-        audioSource.PlayOneShot(audioSource.clip);
-        Debug.Log(audioSource.isPlaying);
-        StartCoroutine(DelayStopAudio(audioSource.clip.length * 0.25f, sceneBuildIndex));
+        if (this != null)
+        {
+            audioSource.PlayOneShot(audioSource.clip);
+            StartCoroutine(DelayStopAudio(audioSource.clip.length * 0.25f, sceneBuildIndex));
+        }
 
     }
     private IEnumerator DelayStopAudio(float seconds, int sceneBuildIndex)
@@ -26,6 +28,5 @@ public class SceneLoaderManager : MonoBehaviour
         {
             SceneManager.LoadScene(sceneBuildIndex);
         }
-        Debug.Log(audioSource.isPlaying);
     }
 }

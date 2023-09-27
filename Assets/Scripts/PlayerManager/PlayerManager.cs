@@ -9,6 +9,8 @@ public class PlayerManager : MonoBehaviour
     public delegate void ChangeLifeNumberVariable(int newLifeNumber);
     public static event ChangeLifeNumberVariable OnDecreaseLifeNumberVariable;
     public static event ChangeLifeNumberVariable OnIncreaseLifeNumberVariable;
+    public delegate void ChangeGameState(GameState gameState);
+    public static event ChangeGameState OnGameStateChanged;
     public PlayerDataList playerDataList;
     public PlayerData playerData;
     private PlayerDataManager playerDataManager;
@@ -32,8 +34,9 @@ public class PlayerManager : MonoBehaviour
         playerDataList = playerDataManager.ReadFile("Player Score.json");
         if (!CheckPlayerIsLifing())
         {
-            lifeNumber = 3;
+            //lifeNumber = 3;
             gameManager.currentGameState = GameState.GameOver;
+            OnGameStateChanged?.Invoke(gameManager.currentGameState);
         }
         if (Life > lifeNumber)
         {
@@ -41,6 +44,8 @@ public class PlayerManager : MonoBehaviour
             {
                 Life = lifeNumber;
                 OnDecreaseLifeNumberVariable(lifeNumber);
+                Debug.Log("Player lost 1 life");
+                Debug.Log($"Sub: Player have {Life} live");
             }
         }
         else if (Life < lifeNumber)
@@ -49,22 +54,28 @@ public class PlayerManager : MonoBehaviour
             {
                 Life = lifeNumber;
                 OnIncreaseLifeNumberVariable(lifeNumber);
+                Debug.Log("Player add 1 life");
+                Debug.Log($"Add: Player have {Life} live");
             }
         }
     }
     private void AddPlayerDataToPlayerDataList(int score)
     {
-        playerDataList = playerDataManager.ReadFile("Player Score.json");
-        if (playerDataList.PlayerDatas.Count > 0)
+        if (playerDataManager != null)
         {
-            int highestScore = playerDataList.PlayerDatas.Max(playerData => playerData.highScore);
-            playerData.playerScore += score;
-            if (playerData.playerScore > highestScore)
+            playerDataList = playerDataManager.ReadFile("Player Score.json");
+            if (playerDataList.PlayerDatas.Count > 0)
             {
-                playerData.highScore = playerData.playerScore;
-                playerData.dateTime = DateTime.Now.ToString("dd/MM/yy hh:mm tt");
+                int highestScore = playerDataList.PlayerDatas.Max(playerData => playerData.highScore);
+                playerData.playerScore += score;
+                if (playerData.playerScore > highestScore)
+                {
+                    playerData.highScore = playerData.playerScore;
+                    playerData.dateTime = DateTime.Now.ToString("dd/MM/yy hh:mm tt");
+                }
             }
         }
+
     }
     private void PlayerLostOneLife(int lifeLost)
     {

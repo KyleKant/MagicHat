@@ -641,7 +641,7 @@ TextureImporter:
         width: 150
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -662,7 +662,7 @@ TextureImporter:
         width: 150
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -683,7 +683,7 @@ TextureImporter:
         width: 100
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -704,7 +704,7 @@ TextureImporter:
         width: 100
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -725,7 +725,7 @@ TextureImporter:
         width: 100
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -733,6 +733,48 @@ TextureImporter:
       bones: []
       spriteID: ef3bf730646a7a44abb16e146a6f9238
       internalID: 283332980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_29
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 484
+        width: 100
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4a036a8328bdc145a67cb267102c2c4
+      internalID: -411697066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_30
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 82
+        width: 150
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30c2122be36956e41bd8af4ff8b40c78
+      internalID: -1462746133
       vertices: []
       indices: 
       edges: []
@@ -767,6 +809,7 @@ TextureImporter:
       spritesheet-of-game-magichat_20: 1771477520
       spritesheet-of-game-magichat_4: 1127577372
       spritesheet-of-game-magichat_16: 2083150653
+      spritesheet-of-game-magichat_29: -411697066
       spritesheet-of-game-magichat_10: 1682511870
       spritesheet-of-game-magichat_19: 2075148052
       spritesheet-of-game-magichat_0: -224107339
@@ -777,6 +820,7 @@ TextureImporter:
       spritesheet-of-game-magichat_2: -344426318
       spritesheet-of-game-magichat_24: 997904618
       spritesheet-of-game-magichat_3: 560520991
+      spritesheet-of-game-magichat_30: -1462746133
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

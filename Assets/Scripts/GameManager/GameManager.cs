@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
         sceneLoader = FindObjectOfType<SceneLoaderManager>();
         playerDataManager = FindObjectOfType<PlayerDataManager>();
         playerManager = FindObjectOfType<PlayerManager>();
+        Debug.Log(playerManager.name);
         gameDataManager = GetComponent<GameDataManager>();
     }
     private void Update()
@@ -31,16 +32,32 @@ public class GameManager : MonoBehaviour
                 Debug.Log("Game is Pausing");
                 break;
             case GameState.GameOver:
-                ChangeSceneToGameOverScene();
+                //Debug.Log("Game is GameOver");
+                //ChangeSceneToGameOverScene();
                 break;
         }
     }
     private void ChangeSceneToGameOverScene()
     {
-        playerManager.playerDataList.PlayerDatas.Add(playerManager.playerData);
+        Debug.Log("Game is GameOver");
+        if (playerManager.playerData != null)
+        {
+            Debug.Log(playerManager.playerData.playerScore);
+            playerManager.playerDataList.PlayerDatas.Add(playerManager.playerData);
+        }
         playerDataManager.WriteFile("Player Score.json", playerManager.playerDataList);
         sceneLoader.ChangeScene(GAMEOVER_SCENE);
     }
+    private void OnEnable()
+    {
+        PlayerManager.OnGameStateChanged += PlayerManager_OnGameStateChanged;
+    }
+
+    private void PlayerManager_OnGameStateChanged(GameState gameState)
+    {
+        ChangeSceneToGameOverScene();
+    }
+
     public void PauseGame()
     {
         Time.timeScale = 0f;
@@ -54,8 +71,14 @@ public class GameManager : MonoBehaviour
     public void ReadGameData()
     {
         GameData gameData = gameDataManager.ReadFile("GameData.json");
-        Debug.Log(gameData.Level + "//" + gameData.State);
     }
+    public void ExitGame()
+    {
+        Debug.Log("Exit game");
+        Application.Quit();
+        UnityEditor.EditorApplication.isPlaying = false;
+    }
+
 }
 [JsonConverter(typeof(StringEnumConverter))]
 public enum GameState
