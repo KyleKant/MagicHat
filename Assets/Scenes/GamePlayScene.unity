@@ -1986,6 +1986,8 @@ MonoBehaviour:
   gameState: 0
   currentGameState: 0
   isGamePlaying: 1
+  playerDataManager: {fileID: 619193181}
+  playerManager: {fileID: 619193180}
 --- !u!4 &829830864
 Transform:
   m_ObjectHideFlags: 0

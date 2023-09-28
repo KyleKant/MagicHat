@@ -495,7 +495,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 548271265}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.703684, y: -0.27252585, z: 132.30872}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1370,6 +1370,8 @@ MonoBehaviour:
   gameState: 0
   currentGameState: 0
   isGamePlaying: 1
+  playerDataManager: {fileID: 324169207}
+  playerManager: {fileID: 324169206}
 --- !u!1 &1468044082
 GameObject:
   m_ObjectHideFlags: 0
@@ -2183,13 +2185,13 @@ MonoBehaviour:
       - m_Target: {fileID: 548271266}
         m_TargetAssemblyTypeName: SceneLoaderManager, Assembly-CSharp
         m_MethodName: ChangeScene
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Guide
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1940695274
@@ -2559,13 +2561,13 @@ MonoBehaviour:
       - m_Target: {fileID: 548271266}
         m_TargetAssemblyTypeName: SceneLoaderManager, Assembly-CSharp
         m_MethodName: ChangeScene
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Gameplay
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!222 &2006927483

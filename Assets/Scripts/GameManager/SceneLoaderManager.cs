@@ -14,26 +14,37 @@ public class SceneLoaderManager : MonoBehaviour
         Debug.Log(gameManager.name);
     }
 
-    public void ChangeScene(int sceneBuildIndex)
+    public void ChangeScene(string sceneBuild)
     {
         if (gameManager.currentGameState == GameState.Play)
         {
             if (this != null)
             {
                 audioSource.PlayOneShot(audioSource.clip);
-                StartCoroutine(DelayStopAudio(audioSource.clip.length * 0.25f, sceneBuildIndex));
+                StartCoroutine(DelayStopAudio(audioSource.clip.length * 0.25f, sceneBuild));
             }
         }
         else if (gameManager.currentGameState == GameState.GameOver)
         {
-            StartCoroutine(DelayStopAudio(1f, sceneBuildIndex));
+            if (this != null)
+            {
+                StartCoroutine(DelayStopAudio(.5f, sceneBuild));
+            }
         }
     }
-    private IEnumerator DelayStopAudio(float seconds, int sceneBuildIndex)
+    private IEnumerator DelayStopAudio(float seconds, string sceneBuild)
     {
         yield return new WaitForSeconds(seconds);
         if (sceneLoader != null)
         {
+            int sceneBuildIndex = sceneBuild switch
+            {
+                "Splash" => 0,
+                "Guide" => 1,
+                "Gameplay" => 2,
+                "Gameover" => 3,
+                _ => 0,
+            };
             SceneManager.LoadScene(sceneBuildIndex);
         }
     }

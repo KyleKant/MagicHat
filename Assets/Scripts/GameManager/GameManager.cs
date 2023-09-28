@@ -8,16 +8,16 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
     public GameState currentGameState;
     public bool isGamePlaying = true;
-    private const int GAMEOVER_SCENE = 3;
+    private const string GAMEOVER_SCENE = "Gameover";
     private SceneLoaderManager sceneLoader;
-    private PlayerDataManager playerDataManager;
-    private PlayerManager playerManager;
+    [SerializeField] private PlayerDataManager playerDataManager;
+    [SerializeField] private PlayerManager playerManager;
     private GameDataManager gameDataManager;
     private void Start()
     {
         sceneLoader = FindObjectOfType<SceneLoaderManager>();
-        playerDataManager = FindObjectOfType<PlayerDataManager>();
-        playerManager = FindObjectOfType<PlayerManager>();
+        //playerDataManager = FindObjectOfType<PlayerDataManager>();
+        //playerManager = FindObjectOfType<PlayerManager>();
         gameDataManager = GetComponent<GameDataManager>();
     }
     private void Update()
@@ -39,9 +39,12 @@ public class GameManager : MonoBehaviour
     private void ChangeSceneToGameOverScene()
     {
         Debug.Log("Game is GameOver");
-        if (playerManager.playerData != null)
+        if (playerManager != null)
         {
-            playerManager.playerDataList.PlayerDatas.Add(playerManager.playerData);
+            if (playerManager.playerData != null)
+            {
+                playerManager.playerDataList.PlayerDatas.Add(playerManager.playerData);
+            }
         }
         playerDataManager.WriteFile("Player Score.json", playerManager.playerDataList);
         sceneLoader.ChangeScene(GAMEOVER_SCENE);

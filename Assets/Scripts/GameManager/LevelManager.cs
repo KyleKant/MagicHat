@@ -3,25 +3,24 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     private GameData gameData;
-    public void SelectLevel(int levelNum)
+    public void SelectLevel(string level)
     {
         gameData = new GameData();
-        switch (levelNum)
+        switch (level)
         {
-            case 0:
+            case "Easy":
                 gameData.Level = GameLevel.Easy;
                 break;
-            case 1:
+            case "Normal":
                 gameData.Level = GameLevel.Normal;
                 break;
-            case 2:
+            case "Hard":
                 gameData.Level = GameLevel.Hard;
                 break;
         }
     }
     public GameData GetGameData()
     {
-        Debug.Log(gameData.Level);
         return gameData;
     }
 }
