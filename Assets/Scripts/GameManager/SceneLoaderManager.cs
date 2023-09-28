@@ -6,20 +6,28 @@ public class SceneLoaderManager : MonoBehaviour
 {
     public GameObject sceneLoader;
     private AudioSource audioSource;
+    private GameManager gameManager;
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        Debug.Log(audioSource.clip.name);
+        gameManager = FindObjectOfType<GameManager>();
+        Debug.Log(gameManager.name);
     }
 
     public void ChangeScene(int sceneBuildIndex)
     {
-        if (this != null)
+        if (gameManager.currentGameState == GameState.Play)
         {
-            audioSource.PlayOneShot(audioSource.clip);
-            StartCoroutine(DelayStopAudio(audioSource.clip.length * 0.25f, sceneBuildIndex));
+            if (this != null)
+            {
+                audioSource.PlayOneShot(audioSource.clip);
+                StartCoroutine(DelayStopAudio(audioSource.clip.length * 0.25f, sceneBuildIndex));
+            }
         }
-
+        else if (gameManager.currentGameState == GameState.GameOver)
+        {
+            StartCoroutine(DelayStopAudio(1f, sceneBuildIndex));
+        }
     }
     private IEnumerator DelayStopAudio(float seconds, int sceneBuildIndex)
     {

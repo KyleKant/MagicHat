@@ -20,7 +20,7 @@ public class MagicHatController : MonoBehaviour
     }
     private void Update()
     {
-        if (gameManager.isGamePlaying)
+        if (gameManager.currentGameState == GameState.Play)
         {
             if (Time.time > increaseTime)
             {

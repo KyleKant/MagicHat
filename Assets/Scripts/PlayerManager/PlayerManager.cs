@@ -31,31 +31,34 @@ public class PlayerManager : MonoBehaviour
     }
     private void Update()
     {
-        playerDataList = playerDataManager.ReadFile("Player Score.json");
-        if (!CheckPlayerIsLifing())
+        if (gameManager.currentGameState == GameState.Play)
         {
-            //lifeNumber = 3;
-            gameManager.currentGameState = GameState.GameOver;
-            OnGameStateChanged?.Invoke(gameManager.currentGameState);
-        }
-        if (Life > lifeNumber)
-        {
-            if (OnDecreaseLifeNumberVariable != null)
+            playerDataList = playerDataManager.ReadFile("Player Score.json");
+            if (!CheckPlayerIsLifing())
             {
-                Life = lifeNumber;
-                OnDecreaseLifeNumberVariable(lifeNumber);
-                Debug.Log("Player lost 1 life");
-                Debug.Log($"Sub: Player have {Life} live");
+                gameManager.currentGameState = GameState.GameOver;
+                OnGameStateChanged?.Invoke(gameManager.currentGameState);
+                //lifeNumber = 3;
             }
-        }
-        else if (Life < lifeNumber)
-        {
-            if (OnIncreaseLifeNumberVariable != null)
+            if (Life > lifeNumber)
             {
-                Life = lifeNumber;
-                OnIncreaseLifeNumberVariable(lifeNumber);
-                Debug.Log("Player add 1 life");
-                Debug.Log($"Add: Player have {Life} live");
+                if (OnDecreaseLifeNumberVariable != null)
+                {
+                    Life = lifeNumber;
+                    OnDecreaseLifeNumberVariable(lifeNumber);
+                    Debug.Log("Player lost 1 life");
+                    Debug.Log($"Sub: Player have {Life} live");
+                }
+            }
+            else if (Life < lifeNumber)
+            {
+                if (OnIncreaseLifeNumberVariable != null)
+                {
+                    Life = lifeNumber;
+                    OnIncreaseLifeNumberVariable(lifeNumber);
+                    Debug.Log("Player add 1 life");
+                    Debug.Log($"Add: Player have {Life} live");
+                }
             }
         }
     }

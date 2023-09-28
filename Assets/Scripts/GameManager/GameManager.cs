@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
         sceneLoader = FindObjectOfType<SceneLoaderManager>();
         playerDataManager = FindObjectOfType<PlayerDataManager>();
         playerManager = FindObjectOfType<PlayerManager>();
-        Debug.Log(playerManager.name);
         gameDataManager = GetComponent<GameDataManager>();
     }
     private void Update()
@@ -42,7 +41,6 @@ public class GameManager : MonoBehaviour
         Debug.Log("Game is GameOver");
         if (playerManager.playerData != null)
         {
-            Debug.Log(playerManager.playerData.playerScore);
             playerManager.playerDataList.PlayerDatas.Add(playerManager.playerData);
         }
         playerDataManager.WriteFile("Player Score.json", playerManager.playerDataList);
