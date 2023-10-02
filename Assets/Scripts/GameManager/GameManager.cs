@@ -77,7 +77,7 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("Exit game");
         Application.Quit();
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
     }
 
 }

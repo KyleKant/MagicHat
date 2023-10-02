@@ -27,6 +27,7 @@ public class CoinController : MonoBehaviour
             }
         }
     }
+
     private void OnMouseDown()
     {
         if (isClickedCoin == false)
