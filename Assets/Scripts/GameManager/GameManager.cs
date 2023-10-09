@@ -13,12 +13,15 @@ public class GameManager : MonoBehaviour
     [SerializeField] private PlayerDataManager playerDataManager;
     [SerializeField] private PlayerManager playerManager;
     private GameDataManager gameDataManager;
+#pragma warning disable IDE0090 // Use 'new(...)'
+    private GameData gameData = new GameData();
+#pragma warning restore IDE0090 // Use 'new(...)'
     private void Start()
     {
         sceneLoader = FindObjectOfType<SceneLoaderManager>();
         //playerDataManager = FindObjectOfType<PlayerDataManager>();
         //playerManager = FindObjectOfType<PlayerManager>();
-        gameDataManager = GetComponent<GameDataManager>();
+        gameDataManager = this.gameObject.AddComponent<GameDataManager>();
     }
     private void Update()
     {
@@ -69,9 +72,17 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1f;
         currentGameState = GameState.Play;
     }
-    public void ReadGameData()
+    public GameData ReadGameData()
     {
-        GameData gameData = gameDataManager.ReadFile("GameData.json");
+        if (gameData != null)
+        {
+            gameData = gameDataManager.ReadFile("GameData.json");
+        }
+        else
+        {
+            Debug.Log("gameData is null");
+        }
+        return gameData;
     }
     public void ExitGame()
     {

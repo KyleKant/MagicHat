@@ -6,12 +6,11 @@ public class PlayerDataManager : MonoBehaviour
 {
     private string saveFile;
     private FileStream fileStream;
-    private void Awake()
-    {
-    }
     public PlayerDataList ReadFile(string fileName)
     {
+#pragma warning disable IDE0090 // Use 'new(...)'
         PlayerDataList playerDataList = new PlayerDataList();
+#pragma warning restore IDE0090 // Use 'new(...)'
         saveFile = Application.persistentDataPath + "/" + fileName;
         if (File.Exists(saveFile) && PlayerPrefs.HasKey("playerDataKey"))
         {
@@ -20,8 +19,12 @@ public class PlayerDataManager : MonoBehaviour
             Aes oAes = Aes.Create();
             byte[] outputIV = new byte[oAes.IV.Length];
             fileStream.Read(outputIV, 0, outputIV.Length);
+#pragma warning disable IDE0090 // Use 'new(...)'
             CryptoStream oCryptoStream = new CryptoStream(fileStream, oAes.CreateDecryptor(savedKey, outputIV), CryptoStreamMode.Read);
+#pragma warning restore IDE0090 // Use 'new(...)'
+#pragma warning disable IDE0090 // Use 'new(...)'
             StreamReader reader = new StreamReader(oCryptoStream);
+#pragma warning restore IDE0090 // Use 'new(...)'
             string readText = reader.ReadToEnd();
             reader.Close();
             playerDataList = JsonUtility.FromJson<PlayerDataList>(readText);
@@ -46,8 +49,12 @@ public class PlayerDataManager : MonoBehaviour
         fileStream = new FileStream(saveFile, FileMode.Create);
         byte[] inputIV = iAes.IV;
         fileStream.Write(inputIV, 0, inputIV.Length);
+#pragma warning disable IDE0090 // Use 'new(...)'
         CryptoStream iCryptoStream = new CryptoStream(fileStream, iAes.CreateEncryptor(iAes.Key, iAes.IV), CryptoStreamMode.Write);
+#pragma warning restore IDE0090 // Use 'new(...)'
+#pragma warning disable IDE0090 // Use 'new(...)'
         StreamWriter writer = new StreamWriter(iCryptoStream);
+#pragma warning restore IDE0090 // Use 'new(...)'
         string writtenText = JsonUtility.ToJson(playerDataList);
         writer.Write(writtenText);
         writer.Close();

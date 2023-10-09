@@ -29,9 +29,11 @@ public class DataStorageController : MonoBehaviour
     public void WriteObject(string fileName, int playerScore, int highScore)
     {
         Debug.Log($"Create a Player object and serializing it at path: {Application.persistentDataPath}.");
-        Player player = new();
-        player.playerScore = playerScore;
-        player.highScore = highScore;
+        Player player = new()
+        {
+            playerScore = playerScore,
+            highScore = highScore
+        };
         FileStream writer = new(Application.persistentDataPath + "/" + fileName, FileMode.Create);
         DataContractSerializer dataContractSerializer = new(typeof(Player));
         dataContractSerializer.WriteObject(writer, player);

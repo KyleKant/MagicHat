@@ -765,13 +765,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1392459936}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: SelectLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 1
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Normal
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &772416966
@@ -1471,13 +1471,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1392459936}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: SelectLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Easy
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1468044085
@@ -2382,13 +2382,13 @@ MonoBehaviour:
       - m_Target: {fileID: 1392459936}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
         m_MethodName: SelectLevel
-        m_Mode: 3
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 2
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Hard
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1952522735

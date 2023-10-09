@@ -4,7 +4,11 @@ using UnityEngine;
 public class RankManager : MonoBehaviour
 {
     private PlayerManager playerManager;
-    private PlayerDataList playerDataList = new();
+#pragma warning disable IDE0044 // Add readonly modifier
+#pragma warning disable IDE0090 // Use 'new(...)'
+    private PlayerDataList playerDataList = new PlayerDataList();
+#pragma warning restore IDE0090 // Use 'new(...)'
+#pragma warning restore IDE0044 // Add readonly modifier
     private void Start()
     {
         playerManager = FindObjectOfType<PlayerManager>();
@@ -39,8 +43,12 @@ public class RankManager : MonoBehaviour
     }
     private void CreateText(string text, string content)
     {
-        GameObject textObj = new GameObject(text, typeof(TextMeshProUGUI));
-        textObj.name = text;
+#pragma warning disable IDE0090 // Use 'new(...)'
+        GameObject textObj = new GameObject(text, typeof(TextMeshProUGUI))
+        {
+            name = text
+        };
+#pragma warning restore IDE0090 // Use 'new(...)'
         textObj.transform.SetParent(transform);
         textObj.transform.localPosition = Vector3.zero;
         textObj.transform.localScale = Vector3.one;

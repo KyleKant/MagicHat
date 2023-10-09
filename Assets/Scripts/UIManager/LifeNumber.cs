@@ -21,9 +21,6 @@ public class LifeNumber : MonoBehaviour
             }
         }
     }
-    private void Update()
-    {
-    }
     private void OnEnable()
     {
         PlayerManager.OnDecreaseLifeNumberVariable += PlayerManager_OnChangeLifeNumberVariable;
