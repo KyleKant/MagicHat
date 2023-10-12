@@ -28,6 +28,7 @@ public class PlayerManager : MonoBehaviour
             playerDataList.PlayerDatas.Add(playerData);
             playerDataManager.WriteFile("Player Score.json", playerDataList);
         }
+
     }
     private void Update()
     {

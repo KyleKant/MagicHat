@@ -9,9 +9,8 @@ public class SceneLoaderManager : MonoBehaviour
     private GameManager gameManager;
     private void Start()
     {
-        audioSource = GetComponent<AudioSource>();
+        audioSource = FindObjectOfType<ButtonSound>().GetComponent<AudioSource>();
         gameManager = FindObjectOfType<GameManager>();
-        Debug.Log(gameManager.name);
     }
 
     public void ChangeScene(string sceneBuild)

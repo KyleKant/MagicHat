@@ -136,8 +136,8 @@ TextureImporter:
         y: 1162
         width: 98
         height: 91
-      alignment: 9
-      pivot: {x: 0.8358726, y: 0.38373944}
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -573,10 +573,10 @@ TextureImporter:
       name: spritesheet-of-game-magichat_22
       rect:
         serializedVersion: 2
-        x: 541
-        y: 377
-        width: 100
-        height: 100
+        x: 539
+        y: 375
+        width: 104
+        height: 104
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -594,10 +594,10 @@ TextureImporter:
       name: spritesheet-of-game-magichat_17
       rect:
         serializedVersion: 2
-        x: 541
-        y: 256
-        width: 101
-        height: 101
+        x: 539
+        y: 267
+        width: 104
+        height: 104
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -615,10 +615,10 @@ TextureImporter:
       name: spritesheet-of-game-magichat_23
       rect:
         serializedVersion: 2
-        x: 541
-        y: 152
-        width: 100
-        height: 86
+        x: 540
+        y: 171
+        width: 104
+        height: 90
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -746,7 +746,7 @@ TextureImporter:
         width: 100
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -763,11 +763,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 541
-        y: 82
+        y: 112
         width: 150
         height: 50
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -775,6 +775,48 @@ TextureImporter:
       bones: []
       spriteID: 30c2122be36956e41bd8af4ff8b40c78
       internalID: -1462746133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_31
+      rect:
+        serializedVersion: 2
+        x: 542
+        y: 4
+        width: 104
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4d61f8c66a02f74f82e210011a28e3d
+      internalID: -1153933374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spritesheet-of-game-magichat_32
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 762
+        width: 104
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e30b366154dfec4d9b648b32cab3248
+      internalID: -1003215963
       vertices: []
       indices: 
       edges: []
@@ -810,6 +852,7 @@ TextureImporter:
       spritesheet-of-game-magichat_4: 1127577372
       spritesheet-of-game-magichat_16: 2083150653
       spritesheet-of-game-magichat_29: -411697066
+      spritesheet-of-game-magichat_32: -1003215963
       spritesheet-of-game-magichat_10: 1682511870
       spritesheet-of-game-magichat_19: 2075148052
       spritesheet-of-game-magichat_0: -224107339
@@ -817,6 +860,7 @@ TextureImporter:
       spritesheet-of-game-magichat_17: -947592372
       spritesheet-of-game-magichat_1: 1753067581
       spritesheet-of-game-magichat_22: 266403730
+      spritesheet-of-game-magichat_31: -1153933374
       spritesheet-of-game-magichat_2: -344426318
       spritesheet-of-game-magichat_24: 997904618
       spritesheet-of-game-magichat_3: 560520991

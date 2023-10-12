@@ -22,8 +22,11 @@ public class BombController : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        GameObject explosionObj = Instantiate(explosion);
-        explosionObj.transform.position = this.transform.position;
-        this.gameObject.SetActive(false);
+        if (gameManager.currentGameState == GameState.Play)
+        {
+            GameObject explosionObj = Instantiate(explosion);
+            explosionObj.transform.position = this.transform.position;
+            this.gameObject.SetActive(false);
+        }
     }
 }

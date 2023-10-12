@@ -7,11 +7,10 @@ public class ExitButton : MonoBehaviour
     private AudioSource _audioSource;
     private void Start()
     {
-        _audioSource = GetComponent<AudioSource>();
+        _audioSource = FindObjectOfType<ButtonSound>().GetComponent<AudioSource>();
     }
     public void ExitGame()
     {
-        _audioSource.PlayOneShot(_audioSource.clip);
         StartCoroutine(DelayToExitGame(_audioSource.clip.length * 0.25f));
     }
     private IEnumerator DelayToExitGame(float delay)
