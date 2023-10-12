@@ -15,6 +15,7 @@ public class PlayerManager : MonoBehaviour
     public PlayerData playerData;
     private PlayerDataManager playerDataManager;
     private GameManager gameManager;
+    private bool isGameOver = false;
     private void Start()
     {
         gameManager = FindObjectOfType<GameManager>();
@@ -35,10 +36,11 @@ public class PlayerManager : MonoBehaviour
         if (gameManager.currentGameState == GameState.Play)
         {
             playerDataList = playerDataManager.ReadFile("Player Score.json");
-            if (!CheckPlayerIsLifing())
+            if (!CheckPlayerIsLifing() && !isGameOver)
             {
                 gameManager.currentGameState = GameState.GameOver;
                 OnGameStateChanged?.Invoke(gameManager.currentGameState);
+                isGameOver = true;
                 //lifeNumber = 3;
             }
             if (Life > lifeNumber)

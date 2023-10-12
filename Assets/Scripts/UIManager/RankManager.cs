@@ -3,12 +3,14 @@ using UnityEngine;
 
 public class RankManager : MonoBehaviour
 {
+    private const int RECORD_NUMBER_ON_LEADERBOARD = 10;
     private PlayerManager playerManager;
 #pragma warning disable IDE0044 // Add readonly modifier
 #pragma warning disable IDE0090 // Use 'new(...)'
     private PlayerDataList playerDataList = new PlayerDataList();
 #pragma warning restore IDE0090 // Use 'new(...)'
 #pragma warning restore IDE0044 // Add readonly modifier
+    private int numberOfLoops = 0;
     private void Start()
     {
         playerManager = FindObjectOfType<PlayerManager>();
@@ -24,21 +26,37 @@ public class RankManager : MonoBehaviour
     {
         if (playerManager != null)
         {
-            if ((this.gameObject.GetComponentsInChildren<TextMeshProUGUI>().Length / 2) < playerDataList.PlayerDatas.Count)
+            if (playerDataList.PlayerDatas.Count < RECORD_NUMBER_ON_LEADERBOARD)
             {
                 for (int i = playerDataList.PlayerDatas.Count - 1; i >= 0; i--)
                 {
-                    if (playerDataList.PlayerDatas[i].highScore != 0)
+                    if ((this.gameObject.GetComponentsInChildren<TextMeshProUGUI>().Length / 2f) < playerDataList.PlayerDatas.Count)
                     {
-                        CreateText($"Score Text {i}", playerDataList.PlayerDatas[i].highScore.ToString());
-                        CreateText($"Time Text {i}", playerDataList.PlayerDatas[i].dateTime);
+                        if (playerDataList.PlayerDatas[i].highScore != 0)
+                        {
+                            CreateText($"Score Text {i}", playerDataList.PlayerDatas[i].highScore.ToString());
+                            CreateText($"Time Text {i}", playerDataList.PlayerDatas[i].dateTime);
+                        }
                     }
-                    else
-                    {
-                        continue;
-                    }
+                    else break;
                 }
             }
+            else
+            {
+                for (int i = playerDataList.PlayerDatas.Count - 1; i >= playerDataList.PlayerDatas.Count - RECORD_NUMBER_ON_LEADERBOARD; i--)
+                {
+                    if ((this.gameObject.GetComponentsInChildren<TextMeshProUGUI>().Length / 2f) < RECORD_NUMBER_ON_LEADERBOARD)
+                    {
+                        if (playerDataList.PlayerDatas[i].highScore != 0)
+                        {
+                            CreateText($"Score Text {i}", playerDataList.PlayerDatas[i].highScore.ToString());
+                            CreateText($"Time Text {i}", playerDataList.PlayerDatas[i].dateTime);
+                        }
+                    }
+                    else break;
+                }
+            }
+
         }
     }
     private void CreateText(string text, string content)
